@@ -3,8 +3,6 @@
 // 782 -> 8
 // 918 -> 1
 
-//Первый вариант решения
-
 System.Console.WriteLine("Введите трехзначное число: ");
 int num = 0;
 while (!int.TryParse(System.Console.ReadLine(), out num))
