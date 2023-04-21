@@ -5,7 +5,11 @@
 // 161 -> да
 
 System.Console.WriteLine("Введите число: ");
-int num = int.Parse(Console.ReadLine());
+int num = 0;
+while (!int.TryParse(System.Console.ReadLine(), out num))
+{
+Console.WriteLine("This is not a number");
+}
 
 if (num % 7 == 0 && num % 23 == 0)
 {
