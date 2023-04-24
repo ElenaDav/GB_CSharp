@@ -14,7 +14,7 @@ if (num == 6 || num == 7)
 {
   Console.WriteLine("YES");
 }
-else if (num == 1 || num == 2 || num == 3 || num == 4 || num == 5)
+else if (num <= 5 && num > 0)
 {
   Console.WriteLine("NO"); 
 }
