@@ -2,10 +2,9 @@
 // диапазон возможных координат точек в этой четверти (x и y)
 
 int quarter = ReadNum("number");
-// string coordinateX, coordinateY;
 
 if (isCoordinatesCorrect(quarter))
-  Console.WriteLine(GetCoordinate(coordinateX, coordinateY));
+  Console.WriteLine(GetCoordinate(coordinates));
 else
   Console.WriteLine("Oooops");
 
@@ -20,29 +19,23 @@ int ReadNum(string argument)
   return i;
 }
 
-int GetCoordinate(string coordinateX, string coordinateY)
+int GetCoordinate(string coordinates)
 {
-  int num;
-
-  if (num == 1)
+  if (quarter == 1)
   {
-    coordinateX = "from 0 to +infinity";
-    coordinateY = "from 0 to +infinity";
+    Console.WriteLine($"coordinateX from 0 to +infinity, coordinateY from 0 to +infinity"); 
   }
-  else if (num == 2)
+  else if (quarter == 2)
   {
-    coordinateX = "from -infinity to 0";
-    coordinateY = "from 0 to +infinity";
+    Console.WriteLine($"coordinateX from -infinity to 0, coordinateY from 0 to +infinity"); 
   }
-    else if (num == 3)
+    else if (quarter == 3)
   {
-    coordinateX = "from -infinity to 0";
-    coordinateY = "from -infinity to 0";
+    Console.WriteLine($"coordinateX from -infinity to 0, coordinateY from -infinity to 0"); 
   }
   else
   {
-    coordinateX = "from 0 to +infinity";
-    coordinateY = "from -infinity to 0";
+    Console.WriteLine($"coordinateX from 0 to +infinity, coordinateY from -infinity to 0"); 
   }
 }
 
