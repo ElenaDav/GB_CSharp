@@ -7,6 +7,18 @@
 int digit = ReadInt("digit");
 string digitStr = digit.ToString();
 
+void CheckingNumber(string digitStr){
+  if (digitStr[0]==digitStr[4] || digitStr[1]==digitStr[3]){
+    Console.WriteLine($"Your number: {digitStr} - NOT a polindrome.");
+  }
+  else Console.WriteLine($"Your number: {digitStr} - IS a polindrome!");
+}
+
+if (digitStr.Length == 5){
+  CheckingNumber(digitStr);
+}
+else Console.WriteLine($"Put a five-digits number");
+
 int ReadInt(string digit)
 {
     Console.WriteLine($"Put a {digit}: ");
@@ -16,36 +28,4 @@ int ReadInt(string digit)
   Console.WriteLine("This is not a number");
   }
   return num;
-}
-
-if (isFiveDigits(digit))
-{
-  Console.WriteLine(GetDigits(digitStr));
-}
-else
-Console.WriteLine("Oooops");
-
-int digitLength = (int)Math.Log10(digit) + 1;
-
-bool isFiveDigits(int digitLength)
-{
-  if (digitLength > 5 || digitLength < 5)
-  {
-    return false;
-  }
-  return true;
-}
-
-int GetDigits(string digitStr)
-{
-  int result = digitStr;
-  if (digitStr[0] == digitStr[4] && digitStr[1] == digitStr[3])
-  {
-    Console.WriteLine("It is true");
-  }
-  else
-  {
-    Console.WriteLine("It is not true");
-  }
-  return result;
 }
