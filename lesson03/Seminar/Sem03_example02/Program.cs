@@ -1,10 +1,10 @@
 ﻿// Напишите программу, которая по заданному номеру четверти, показывает 
 // диапазон возможных координат точек в этой четверти (x и y)
 
-int quarter = ReadNum("number");
+int quarter = ReadNum("quarter");
 
 if (isCoordinatesCorrect(quarter))
-  Console.WriteLine(GetCoordinate(coordinates));
+  Console.WriteLine(GetCoordinate());
 else
   Console.WriteLine("Oooops");
 
@@ -21,6 +21,7 @@ int ReadNum(string argument)
 
 int GetCoordinate(string coordinates)
 {
+  int result = 0;
   if (quarter == 1)
   {
     Console.WriteLine($"coordinateX from 0 to +infinity, coordinateY from 0 to +infinity"); 
@@ -37,6 +38,7 @@ int GetCoordinate(string coordinates)
   {
     Console.WriteLine($"coordinateX from 0 to +infinity, coordinateY from -infinity to 0"); 
   }
+  return result;
 }
 
 bool isCoordinatesCorrect(int i)
