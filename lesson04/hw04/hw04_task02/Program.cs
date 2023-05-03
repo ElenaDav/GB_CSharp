@@ -7,9 +7,10 @@ System.Console.WriteLine("Put a number: ");
 int firstNumb = int.Parse(Console.ReadLine());
 string firstNumbStr = firstNumb.ToString();
 
+int sum = 0;
 for (int i = 0; i < firstNumbStr.Length; i++)
 {
-  int sum = firstNumbStr[i] + i;
+  sum = firstNumbStr[i] + i;
   // return sum;
-  System.Console.WriteLine(sum);
 }
+System.Console.WriteLine(sum);
