@@ -3,6 +3,8 @@
 // 78 -> 2
 // 89126 -> 5
 
+// 1 способ
+
 int ReadNum(string argument)
 {
   Console.Write(argument);

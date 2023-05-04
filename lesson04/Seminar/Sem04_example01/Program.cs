@@ -16,4 +16,4 @@ int GetSum(int number)
     return sum;
 }
 
-System.Console.WriteLine($"Sum numbers from 1 to {numberA} is {GetSum (numberA)}");
+System.Console.WriteLine($"Sum numbers from 1 to {numberA} is {GetSum(numberA)}");
