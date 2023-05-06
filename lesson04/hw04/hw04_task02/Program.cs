@@ -4,13 +4,18 @@
 // 9012 -> 12
 
 System.Console.WriteLine("Put a number: ");
-int firstNumb = int.Parse(Console.ReadLine());
-string firstNumbStr = firstNumb.ToString();
+int numb = int.Parse(Console.ReadLine());
 
 int sum = 0;
-for (int i = 0; i < firstNumbStr.Length; i++)
+int mult = 1;
+
+while (numb > 0)
 {
-  sum = firstNumbStr[i] + i;
-  // return sum;
+  int digit = numb % 10;
+  sum = sum + digit;
+  mult = mult * digit;
+  numb = numb / 10;
 }
+
 System.Console.WriteLine(sum);
+System.Console.WriteLine(mult);
