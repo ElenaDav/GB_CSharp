@@ -15,7 +15,7 @@ for (int i = 0; i < array.Length; i++)
 
 System.Console.WriteLine(string.Join("  ", array));
 */
-int AddNums(string add)
+int AddNumbs(string add)
 {
   System.Console.WriteLine("Put 8 numbers: ");
   string numbsStr = Console.ReadLine();
@@ -23,15 +23,17 @@ int AddNums(string add)
   return numbs;
 }
 
-// int[] EightNumbs(int eight)
-// {
-//   int[] array = new int[8];
-//   while (array.Length != 7)
-//   {
-//     System.Console.WriteLine("Put 8 numbers");
-//   }
-//   return array;
-// }
+int[] EightNumbsArray(int eight)
+{
+  int[] array = new int[8];
+  Random rnd = new Random();
+
+  for (int i = 0; i < array.Length; i++)
+  {
+    
+  }
+  return array;
+}
 
 void PrintArray(int[] array)
 {
@@ -41,12 +43,12 @@ void PrintArray(int[] array)
   {
     System.Console.Write($"{array[i]}, ");
   }
-  System.Console.Write($"{array[array.Length - 1]}, ");
+  // System.Console.Write($"{array[array.Length - 1]}, ");
 
   System.Console.Write("]");
 }
 
-int addNumbs = AddNums("Put 8 numbers:");
+int addNumbs = AddNumbs("Put 8 numbers:");
 // System.Console.WriteLine(addNumbs);
 int[] array = new int[addNumbs];
 // System.Console.WriteLine(array);
