@@ -20,13 +20,12 @@ void PrintArray(int[] numbers)
   Console.WriteLine();
 }
 
-int[] GetPlusOrMinus(int[] newArray)
+void ChangeSing(int[] newArray)
 {
   for (int i = 0; i < newArray.Length; i++)
   {
-    newArray[i] = -newArray[i];
+    newArray[i] *= -1;
   }
-  return newArray;
 }
 
 void GetArray()
@@ -38,8 +37,8 @@ void GetArray()
   FillArray(ourArray);
   PrintArray(ourArray);
 
-  int[] newArray =  GetPlusOrMinus(ourArray);
-  PrintArray(newArray);
+  ChangeSing(ourArray);
+  PrintArray(ourArray);
 }
 
 GetArray();
