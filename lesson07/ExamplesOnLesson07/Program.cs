@@ -146,4 +146,22 @@ void Towers(string with = "1", string on = "3", string some = "2", int count = 5
 }
 // Towers();
 
-//
+// Обход разных структур
+// ((4 - 2) * (1 + 3)) / 10
+string emp = string.Empty;
+string[] tree = { emp, "/", "*", "10", "-", "+", emp, emp, "4", "2", "1", "3" };
+//                  0   1    2     3    4     5   6     7   8     9   10   11
+void InOrderTraversal(int pos = 1) // позиция, с которой делаем обход
+{
+  if (pos < tree.Length)
+  {
+    int left = 2 * pos;
+    int right = 2 * pos + 1;
+    // если позиция слева есть и она не пустая
+    if (left < tree.Length && !string.IsNullOrEmpty(tree[left])) InOrderTraversal(left);
+    System.Console.WriteLine(tree[pos]);
+    if (right < tree.Length && !string.IsNullOrEmpty(tree[right])) InOrderTraversal(right);
+  }
+}
+  // InOrderTraversal();
+
