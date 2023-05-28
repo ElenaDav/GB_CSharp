@@ -4,38 +4,54 @@ m = 3, n = 4.
 1 -3,3 8 -9,9
 8 7,8 -7,1 9*/
 
+Task47();
+
+int ReadInt(string argument) // проверка на число
+{
+    int i;
+    while (!int.TryParse(Console.ReadLine(), out i))
+    {
+        System.Console.WriteLine("It is not a number!");
+    }
+    return i;
+}
+
 void FillDoubleArray(double[,] array)
 {
-  Random rnd = new Random();
-  for (int i = 0; i < array.GetLength(0); i++)
-  {
-    for (int j = 0; j < array.GetLength(1); j++)
+    Random rnd = new Random();
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-      array[i, j] = Convert.ToDouble(Math.Round(rnd.NextDouble(), 1));
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = Convert.ToDouble(Math.Round(rnd.NextDouble(), 1));
+        }
     }
-  }
 }
 
 void PrintDoubleArray(double[,] array)
 {
-  for (int i = 0; i < array.GetLength(0); i++)
-  {
-    for (int j = 0; j < array.GetLength(1); j++)
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-      System.Console.Write($"{array[i, j]} ");
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            System.Console.Write($"{array[i, j]} ");
+        }
+        System.Console.WriteLine();
     }
-    System.Console.WriteLine();
-  }
 }
 
-System.Console.WriteLine("Put M: ");
-int m1 = Convert.ToInt32(Console.ReadLine());
-System.Console.WriteLine("Put N: ");
-int n1 = Convert.ToInt32(Console.ReadLine());
-double[,] array = new double[m1, n1];
+void Task47()
+{
+    System.Console.WriteLine("Put M: ");
+    int m1 = Convert.ToInt32(Console.ReadLine());
+    System.Console.WriteLine("Put N: ");
+    int n1 = Convert.ToInt32(Console.ReadLine());
+    double[,] array = new double[m1, n1];
 
-FillDoubleArray(array);
-PrintDoubleArray(array);
+    FillDoubleArray(array);
+    PrintDoubleArray(array);
+}
+
 
 /*Задача 50. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, и возвращает значение этого элемента или же указание, что такого элемента нет.Например, задан массив:
 1 4 7 2
@@ -43,68 +59,62 @@ PrintDoubleArray(array);
 8 4 2 4
 17 -> такого числа в массиве нет*/
 
+Task50();
+
 void CreateTwoArray(int[,] array)
 {
-  Random rnd = new Random();
-  for (int i = 0; i < array.GetLength(0); i++)
-  {
-    for (int j = 0; j < array.GetLength(1); j++)
+    Random rnd = new Random();
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-      array[i, j] = rnd.Next(1,10);
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = rnd.Next(1, 10);
+        }
     }
-  }
 }
 
 void PrintTwoArray(int[,] array)
 {
-  // Random rnd = new Random();
-  // int[,] array = new int[m, n];
-  for (int i = 0; i < array.GetLength(0); i++)
-  {
-    for (int j = 0; j < array.GetLength(1); j++)
+    // Random rnd = new Random();
+    // int[,] array = new int[m, n];
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-      System.Console.Write($"{array[i, j]} ");
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            System.Console.Write($"{array[i, j]} ");
+        }
+        System.Console.WriteLine();
     }
-    System.Console.WriteLine();
-  }
 }
 
-int ReadInt(string argument) // проверка на число
+int GetNumber(int[,] array, int index1, int index2)
 {
-  int i;
-  while (!int.TryParse(Console.ReadLine(), out i))
-  {
-  System.Console.WriteLine("It is not a number!");
-  }
-  return i;
-}
-
-void GetNumber(int[,] array)
-{
-  System.Console.WriteLine("Put a number: ");
-  int number = ReadInt("Number");
- 
-  for (int i = 0; i < array.GetLength(0); i++)
-  {
-    for (int j = 0; j < array.GetLength(1); j++)
+    if(index1 > array.GetLength(0) && index2 > array.GetLength(1))
     {
-      if(array[i, j] != number)
-        System.Console.WriteLine($"{number} -> такого числа в массиве нет");
-      else System.Console.WriteLine(number); 
+        throw new ArgumentOutOfRangeException("Такого числа в массиве нет");
     }
-  }
+
+    return array[index1 - 1, index2 - 1];
 }
 
+void Task50()
+{
+    System.Console.WriteLine("Put M: ");
+    int m2 = ReadInt("M");
+    System.Console.WriteLine("Put N: ");
+    int n2 = ReadInt("N");
 
-System.Console.WriteLine("Put M: ");
-int m2 = ReadInt("M");
-System.Console.WriteLine("Put N: ");
-int n2 = ReadInt("N");
-int[,] ourArray = new int[m2, n2];
+    int[,] ourArray = new int[m2, n2];
+    CreateTwoArray(ourArray);
+    PrintTwoArray(ourArray);
 
-CreateTwoArray(ourArray);
-PrintTwoArray(ourArray);
-GetNumber(ourArray);
+    System.Console.WriteLine("Put index1: ");
+    int index1 = ReadInt("First index");
+    System.Console.WriteLine("Put second index: ");
+    int index2 = ReadInt("Scond index");
+
+    Console.WriteLine(GetNumber(ourArray, index1, index2));
+}
 
 
 /*Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
@@ -114,38 +124,35 @@ GetNumber(ourArray);
 8 4 2 4
 Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3. */
 
-double GetAverage(int[,] array)
+Task52();
+
+double[] GetAverage(int[,] array)
 {
-  double average = 0; 
-  for (int j = 0; j < array.GetLength(1); j++)
-  {
-    for (int i = 0; i < array.GetLength(0); i++)
+    double[] average = new double[array.GetLength(1)];
+
+    for (int i = 0; i < array.GetLength(1); i++)
     {
-      average += array[i, j];    
-      average = average / array.GetLength(0);
+        int sum = 0;
+
+        for (int j = 0; j < array.GetLength(0); j++)
+        {
+            sum += array[i, j];
+        }
+
+        average[i] = sum / (double)array.GetLength(0);
     }
-  }
-  return average;
-}      
-
-System.Console.WriteLine("Put M: ");
-int m3 = ReadInt("M");
-System.Console.WriteLine("Put N: ");
-int n3 = ReadInt("N");
-int[,] arrayForAverage = new int[m3, n3];
-
-CreateTwoArray(arrayForAverage);
-PrintTwoArray(arrayForAverage);
-System.Console.WriteLine(GetAverage(arrayForAverage));
-
-/* ко 2 заданию
-System.Console.WriteLine("Put a number: ");
-int number = ReadInt("Number");
-if (m2 > ourArray.GetLength(0) || n2 > ourArray.GetLength(1))
-{
-  Console.WriteLine("такого элемента нет");
+    return average;
 }
-else
+
+void Task52()
 {
-  Console.WriteLine($"значение элемента {m2} строки и {n2} столбца равно {ourArray[m2-1,n2-1]}");
-}*/
+    System.Console.WriteLine("Put M: ");
+    int m3 = ReadInt("M");
+    System.Console.WriteLine("Put N: ");
+    int n3 = ReadInt("N");
+    int[,] arrayForAverage = new int[m3, n3];
+
+    CreateTwoArray(arrayForAverage);
+    PrintTwoArray(arrayForAverage);
+    Console.WriteLine(string.Join(", ", GetAverage(arrayForAverage)));
+}
